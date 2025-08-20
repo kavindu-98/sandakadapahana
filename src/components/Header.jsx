@@ -7,6 +7,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -73,6 +74,12 @@ const Header = () => {
     { href: "#events", label: "Events", icon: "🎵" },
     { href: "#tickets", label: "Tickets", icon: "🎫" },
     { href: "#contact", label: "Contact", icon: "📞" },
+  ];
+
+  const socials = [
+    { name: "facebook", icon: <Facebook size={20} /> },
+    { name: "instagram", icon: <Instagram size={20} /> },
+    { name: "twitter", icon: <Twitter size={20} /> },
   ];
 
   return (
@@ -426,10 +433,10 @@ const Header = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.5, duration: 0.8 }}
         >
-          {["facebook", "instagram", "twitter"].map((social, index) => (
+          {socials.map((social, index) => (
             <motion.a
-              key={social}
-              href={`#${social}`}
+              key={social.name}
+              href={`#${social.name}`}
               className="w-12 h-12 bg-black/20 backdrop-blur-sm hover:bg-white/20 text-white rounded-full flex items-center justify-center border border-white/20 transition-all duration-300"
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.9 }}
@@ -437,11 +444,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.7 + index * 0.1 }}
             >
-              <span className="text-xl">
-                {social === "facebook" && "📘"}
-                {social === "instagram" && "📸"}
-                {social === "twitter" && "🐦"}
-              </span>
+              {social.icon}
             </motion.a>
           ))}
         </motion.div>

@@ -1,22 +1,19 @@
 /** @format */
 
-import {
-  Play,
-  Pause,
-  Volume2,
-  Heart,
-  Share2,
-  Award,
-  Music,
-  Calendar,
-  Users,
-} from "lucide-react";
-import ArtistImg from "../assets/images/sunil-edirisinghe.png";
+import { Play, Pause, Award, Music, Calendar, Users } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import { useSprings, animated, to } from "@react-spring/web";
-import Artist1 from "../assets/images/sunil-edirisinghe.png";
-import Artist2 from "../assets/images/img2.jpg";
-import Artist3 from "../assets/images/img3.jpg";
+
+// Sample images - replace with your actual images
+const Artist1 =
+  "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=500&fit=crop";
+const Artist2 =
+  "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400&h=500&fit=crop";
+const Artist3 =
+  "https://images.unsplash.com/photo-1445985543470-41fba5c3144a?w=400&h=500&fit=crop";
+const Artist4 =
+  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=500&fit=crop";
+const Artist5 =
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop";
 
 const songs = [
   {
@@ -40,47 +37,67 @@ const songs = [
     img: Artist3,
     audio: "/audios/oba-ma.mp3",
   },
+  {
+    id: 4,
+    title: "Sihinayaki Re",
+    artist: "H.R. Jothipala",
+    img: Artist4,
+    audio: "/audios/sihinayaki.mp3",
+  },
+  {
+    id: 5,
+    title: "Me Pathume",
+    artist: "T.M. Jayaratne",
+    img: Artist5,
+    audio: "/audios/me-pathume.mp3",
+  },
 ];
 
-// Carousel card positions
-const toTransform = (i, activeIndex) => {
-  const offset = i - activeIndex;
-  return {
-    x: offset * 300,
-    scale: offset === 0 ? 1 : 0.8,
-    zIndex: -Math.abs(offset),
-    opacity: Math.abs(offset) > 2 ? 0 : 1,
-  };
-};
-
 const Artist = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration] = useState(243); // 4:03 in seconds
-  const [volume, setVolume] = useState(0.7);
-  const [isLiked, setIsLiked] = useState(false);
-
-  // Audio visualizer bars
-  const [audioLevels, setAudioLevels] = useState(Array(15).fill(0));
-
+  const [isPlaying, setIsPlaying] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const audioRef = useRef();
+  const intervalRef = useRef();
 
-  const [springs, api] = useSprings(songs.length, (i) =>
-    toTransform(i, activeIndex)
-  );
+  // Auto-scroll functionality
+  useEffect(() => {
+    const startAutoScroll = () => {
+      intervalRef.current = setInterval(() => {
+        setIsTransitioning(true);
+        setActiveIndex((prev) => (prev + 1) % songs.length);
+      }, 3000); // Change slide every 3 seconds
+    };
 
-  const next = () => {
-    setActiveIndex((prev) => (prev + 1) % songs.length);
-    api.start((i) => toTransform(i, (activeIndex + 1) % songs.length));
+    startAutoScroll();
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
+
+  // Reset transition state
+  useEffect(() => {
+    if (isTransitioning) {
+      const timer = setTimeout(() => setIsTransitioning(false), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitioning]);
+
+  // Pause auto-scroll on hover
+  const handleMouseEnter = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
   };
 
-  const prev = () => {
-    setActiveIndex((prev) => (prev - 1 + songs.length) % songs.length);
-    api.start((i) =>
-      toTransform(i, (activeIndex - 1 + songs.length) % songs.length)
-    );
+  const handleMouseLeave = () => {
+    intervalRef.current = setInterval(() => {
+      setIsTransitioning(true);
+      setActiveIndex((prev) => (prev + 1) % songs.length);
+    }, 3000);
   };
 
   const togglePlay = (song) => {
@@ -90,32 +107,53 @@ const Artist = () => {
     } else {
       if (audioRef.current) {
         audioRef.current.src = song.audio;
-        audioRef.current.play();
+        audioRef.current.play().catch(() => {
+          console.log("Audio play failed");
+        });
         setIsPlaying(song.id);
       }
     }
   };
 
-  useEffect(() => {
-    let interval;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setCurrentTime((prev) => (prev < duration ? prev + 1 : 0));
-        // Simulate audio levels
-        setAudioLevels(
-          Array(15)
-            .fill(0)
-            .map(() => Math.random() * 80)
-        );
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, duration]);
+  const getCardStyle = (index) => {
+    const offset = index - activeIndex;
+    const distance = 350;
 
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
+    let transform = `translateX(${offset * distance}px)`;
+    let scale = 1;
+    let zIndex = songs.length - Math.abs(offset);
+    let opacity = 1;
+    let blur = 0;
+    let brightness = 1;
+    let rotateY = 0;
+
+    if (offset === 0) {
+      // Active card
+      scale = 1.1;
+      zIndex = songs.length + 1;
+    } else {
+      // Side cards
+      scale = Math.max(0.7, 1 - Math.abs(offset) * 0.15);
+      opacity =
+        Math.abs(offset) > 2 ? 0 : Math.max(0.3, 1 - Math.abs(offset) * 0.3);
+      blur = Math.abs(offset) * 2;
+      brightness = 1 - Math.abs(offset) * 0.2;
+      rotateY = offset * -15;
+    }
+
+    transform += ` scale(${scale}) rotateY(${rotateY}deg) translateY(${
+      Math.abs(offset) * 20
+    }px)`;
+
+    return {
+      transform,
+      zIndex,
+      opacity,
+      filter: `blur(${blur}px) brightness(${brightness})`,
+      transition: isTransitioning
+        ? "all 0.7s cubic-bezier(0.4, 0.0, 0.2, 1)"
+        : "all 0.3s ease",
+    };
   };
 
   const achievements = [
@@ -149,27 +187,29 @@ const Artist = () => {
 
       <div className="relative z-10 container mx-auto px-4 py-8 lg:py-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
-          {/* Left Side - Artist Photo */}
+          {/* Left Side - 3D Auto-Scroll Carousel */}
           <div className="w-full flex flex-col items-center">
             <h2 className="text-3xl font-bold text-amber-800 mb-8">
               Music Carousel
             </h2>
 
-            <div className="relative w-full flex justify-center items-center">
-              {springs.map((style, i) => {
-                const song = songs[i];
+            {/* 3D Carousel Container */}
+            <div
+              className="relative w-full h-[500px] flex justify-center items-center overflow-hidden"
+              style={{ perspective: "1200px" }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {songs.map((song, index) => {
+                const isActive = index === activeIndex;
+
                 return (
-                  <animated.div
+                  <div
                     key={song.id}
-                    className="absolute w-80 h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-300 bg-gradient-to-br from-amber-100 to-orange-100 group"
-                    style={{
-                      transform: to(
-                        [style.x, style.scale],
-                        (x, s) => `translate3d(${x}px,0,0) scale(${s})`
-                      ),
-                      zIndex: style.zIndex.to((z) => z),
-                      opacity: style.opacity,
-                    }}
+                    className={`absolute w-72 h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-300 bg-gradient-to-br from-amber-100 to-orange-100 group cursor-pointer ${
+                      isActive ? "shadow-amber-400/50 shadow-2xl" : ""
+                    }`}
+                    style={getCardStyle(index)}
                   >
                     {/* Image */}
                     <img
@@ -192,16 +232,17 @@ const Artist = () => {
                       </button>
                     </div>
 
-                    {/* Visualizer */}
+                    {/* Audio Visualizer */}
                     {isPlaying === song.id && (
-                      <div className="absolute bottom-6 left-6 flex items-end space-x-1">
+                      <div className="absolute bottom-20 left-6 flex items-end space-x-1">
                         {Array.from({ length: 8 }).map((_, j) => (
                           <div
                             key={j}
-                            className="w-1 bg-amber-200 rounded-full transition-all duration-200"
+                            className="w-1.5 bg-amber-200 rounded-full animate-pulse transition-all duration-200"
                             style={{
                               height: `${Math.random() * 40 + 8}px`,
-                              opacity: 0.8,
+                              opacity: 0.9,
+                              animationDelay: `${j * 0.1}s`,
                             }}
                           />
                         ))}
@@ -209,31 +250,34 @@ const Artist = () => {
                     )}
 
                     {/* Song Info */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/40 p-4">
-                      <h3 className="text-white font-bold text-lg">
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                      <h3 className="text-white font-bold text-lg mb-1">
                         {song.title}
                       </h3>
                       <p className="text-amber-200 text-sm">{song.artist}</p>
                     </div>
-                  </animated.div>
+
+                    {/* Active Indicator */}
+                    {isActive && (
+                      <div className="absolute top-4 right-4 w-3 h-3 bg-amber-400 rounded-full animate-pulse"></div>
+                    )}
+                  </div>
                 );
               })}
             </div>
 
-            {/* Controls */}
-            <div className="flex space-x-6 mt-80">
-              <button
-                onClick={prev}
-                className="px-4 py-2 bg-amber-500 text-white rounded-xl shadow-md hover:bg-amber-600"
-              >
-                Prev
-              </button>
-              <button
-                onClick={next}
-                className="px-4 py-2 bg-amber-500 text-white rounded-xl shadow-md hover:bg-amber-600"
-              >
-                Next
-              </button>
+            {/* Progress Indicators */}
+            <div className="flex space-x-2 mt-8">
+              {songs.map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-2 rounded-full transition-all duration-500 ${
+                    index === activeIndex
+                      ? "bg-amber-600 w-8"
+                      : "bg-amber-300 w-2"
+                  }`}
+                />
+              ))}
             </div>
 
             {/* Audio Element */}
@@ -302,28 +346,6 @@ const Artist = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .slider::-webkit-slider-thumb {
-          appearance: none;
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          background: linear-gradient(to right, #d97706, #ea580c);
-          cursor: pointer;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .slider::-moz-range-thumb {
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          background: linear-gradient(to right, #d97706, #ea580c);
-          cursor: pointer;
-          border: none;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
     </div>
   );
 };

@@ -53,7 +53,7 @@ const Booking = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.03),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(249,115,22,0.03),transparent_50%)]"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative">
-        {/* 🎤 Event Details - Multiple Events */}
+        {/*  Event Details - Multiple Events */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -181,7 +181,7 @@ const Booking = () => {
           </div>
         </motion.div>
 
-        {/* 🎟 Ticket Categories */}
+        {/*  Ticket Categories */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

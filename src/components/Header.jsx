@@ -165,10 +165,12 @@ const Header = () => {
               {/* CTA Button - Desktop */}
               <div className="hidden lg:block">
                 <motion.a
-                  href="#tickets"
+                  href="https://oneticket.lk/5YNA1190965E4FD352CB2"
                   className="relative inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <span className="relative z-10">Get Tickets</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -248,9 +250,11 @@ const Header = () => {
                     className="pt-4 border-t border-white/10"
                   >
                     <a
-                      href="#tickets"
+                      href="https://oneticket.lk/5YNA1190965E4FD352CB2"
                       className="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl shadow-lg"
                       onClick={() => setIsMenuOpen(false)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Get Tickets Now
                     </a>
@@ -351,10 +355,12 @@ const Header = () => {
                 transition={{ duration: 1.2, delay: 0.8 }}
               >
                 <motion.a
-                  href="#tickets"
+                  href="https://oneticket.lk/5YNA1190965E4FD352CB2"
                   className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <span>Book Now</span>
                   <svg

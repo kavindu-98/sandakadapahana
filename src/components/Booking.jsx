@@ -92,9 +92,16 @@ const Booking = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full md:w-auto px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all"
+                  className="w-full md:w-auto"
                 >
-                  Book Now
+                  <a
+                    href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"
+                  >
+                    Book Now
+                  </a>
                 </motion.button>
               </div>
             </div>
@@ -200,7 +207,15 @@ const Booking = () => {
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
           {ticketCategories.map((ticket, index) => (
-            <TicketCard key={ticket.category} {...ticket} delay={index * 0.1} />
+            <a
+              key={ticket.category}
+              href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <TicketCard {...ticket} delay={index * 0.1} />
+            </a>
           ))}
         </div>
       </div>

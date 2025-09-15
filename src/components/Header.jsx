@@ -8,6 +8,8 @@ import {
 } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Home, Info, Music, Ticket, Phone } from "lucide-react";
+import logo from "../assets/images/logo.png";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -69,11 +71,31 @@ const Header = () => {
   }, [carouselImages.length]);
 
   const navLinks = [
-    { href: "#home", label: "Home", icon: "🏠" },
-    { href: "#about", label: "About", icon: "ℹ️" },
-    { href: "#events", label: "Events", icon: "🎵" },
-    { href: "#tickets", label: "Tickets", icon: "🎫" },
-    { href: "#contact", label: "Contact", icon: "📞" },
+    {
+      href: "#home",
+      label: "Home",
+      icon: <Home className="text-[#BAA597] group-hover:text-white" />,
+    },
+    {
+      href: "#about",
+      label: "About",
+      icon: <Info className="text-[#BAA597] group-hover:text-white" />,
+    },
+    {
+      href: "#events",
+      label: "Events",
+      icon: <Music className="text-[#BAA597] group-hover:text-white" />,
+    },
+    {
+      href: "#tickets",
+      label: "Tickets",
+      icon: <Ticket className="text-[#BAA597] group-hover:text-white" />,
+    },
+    {
+      href: "#contact",
+      label: "Contact",
+      icon: <Phone className="text-[#BAA597] group-hover:text-white" />,
+    },
   ];
 
   const socials = [
@@ -105,17 +127,14 @@ const Header = () => {
         <div className="bg-black/20 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
           <div className="px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
-              {/* Animated Logo */}
+              {/* Logo */}
               <motion.div
                 className="flex-shrink-0"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a
-                  href="#home"
-                  className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-amber-200 via-orange-300 to-amber-100 bg-clip-text text-transparent hover:from-white hover:to-amber-200 transition-all duration-300"
-                >
-                  සඳකඩපහන
+                <a href="#home" className="flex items-center">
+                  <img src={logo} alt="සඳකඩපහන Logo" className="h-10 w-auto" />
                 </a>
               </motion.div>
 
@@ -281,16 +300,31 @@ const Header = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               className="space-y-6"
             >
-              <motion.h1
-                className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.2 }}
-              >
-                <span className="bg-gradient-to-r from-white via-amber-100 to-orange-200 bg-clip-text text-transparent drop-shadow-2xl">
-                  {carouselImages[currentSlide].title}
-                </span>
-              </motion.h1>
+              {currentSlide === 0 ? (
+                <motion.div
+                  className="flex justify-center mb-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.2 }}
+                >
+                  <img
+                    src={logo}
+                    alt="සඳකඩපහන Logo"
+                    className="h-32 sm:h-40 lg:h-48 w-auto drop-shadow-2xl"
+                  />
+                </motion.div>
+              ) : (
+                <motion.h1
+                  className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.2 }}
+                >
+                  <span className="bg-gradient-to-r from-white via-amber-100 to-orange-200 bg-clip-text text-transparent drop-shadow-2xl">
+                    {carouselImages[currentSlide].title}
+                  </span>
+                </motion.h1>
+              )}
 
               <motion.h2
                 className="text-2xl sm:text-3xl lg:text-5xl font-light text-amber-200 mb-4"

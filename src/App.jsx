@@ -14,7 +14,7 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
       <Artist />
-      <Countdown />
+      {/* <Countdown /> */}
       <Booking />
 
       {/* Gallery Section */}

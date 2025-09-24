@@ -1,7 +1,9 @@
 /** @format */
 
 import { motion } from "framer-motion";
-import flyerImg from "../assets/images/flyer.jpg";
+import flyerImg1 from "../assets/images/flyer1.jpg";
+import flyerImg2 from "../assets/images/flyer2.jpg";
+import flyerImg3 from "../assets/images/flyer3.jpg";
 
 const TicketCard = ({ category, price, popular = false, delay = 0 }) => (
   <motion.div
@@ -63,11 +65,11 @@ const Booking = () => {
         >
           <div className="space-y-10">
             {/* Event 1 */}
-            <div className="bg-white rounded-xl p-4 lg:p-8 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-6">
+            <div className="bg-white rounded-xl p-6 lg:p-10 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-8">
               <img
-                src={flyerImg}
+                src={flyerImg2}
                 alt="Concert Flyer Colombo"
-                className="rounded-lg shadow-lg w-full md:w-96 h-80 object-cover mb-4 md:mb-0"
+                className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0"
               />
               <div className="flex-1 flex flex-col h-full justify-between">
                 <div>
@@ -84,9 +86,9 @@ const Booking = () => {
                     harmony.
                   </p>
                   <div className="space-y-2 text-gray-700 mb-4">
-                    <p>📅 December 25, 2025 at 7:00 PM</p>
-                    <p>📍 National Arts Center, Colombo</p>
-                    <p>⏰ Doors open at 6:30 PM</p>
+                    <p>📅 2025 නොවැම්බර් මස 15 වන දින</p>
+                    <p>📍 කොළඹ මියුසියස් විද්‍යාලයීය ශ්‍රවණාගාරයේ දී</p>
+                    <p>⏰ Doors open at 7:00 PM</p>
                   </div>
                 </div>
                 <motion.button
@@ -107,11 +109,11 @@ const Booking = () => {
             </div>
 
             {/* Event 2 */}
-            <div className="bg-white rounded-xl p-4 lg:p-8 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-6 relative opacity-60 pointer-events-none">
+            <div className="bg-white rounded-xl p-6 lg:p-10 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-8">
               <img
-                src={flyerImg}
+                src={flyerImg3}
                 alt="Concert Flyer Kandy"
-                className="rounded-lg shadow-lg w-full md:w-96 h-80 object-cover mb-4 md:mb-0"
+                className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0"
               />
               <div className="flex-1 flex flex-col h-full justify-between">
                 <div>
@@ -127,31 +129,39 @@ const Booking = () => {
                     culture.
                   </p>
                   <div className="space-y-2 text-gray-700 mb-4">
-                    <p>📅 January 10, 2026 at 6:30 PM</p>
-                    <p>📍 Queen's Hotel, Kandy</p>
+                    <p>📅 2025 නොවැම්බර් මස 04 වන දින</p>
+                    <p>📍 පේරාදෙණිය විශ්වවිද්‍යාලයීය ගෘහස්ථ ක්‍රීඩාගාරයේදී</p>
                     <p>⏰ Doors open at 6:00 PM</p>
                   </div>
                 </div>
                 <motion.button
-                  disabled
-                  className="w-full md:w-auto px-8 py-3 bg-gray-300 text-gray-500 rounded-xl shadow-md cursor-not-allowed"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full md:w-auto"
                 >
-                  Tickets Not Released
+                  <a
+                    href="https://oneticket.lk/AAZR11909B23F8495FC86"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"
+                  >
+                    Book Now
+                  </a>
                 </motion.button>
               </div>
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* <div className="absolute inset-0 flex items-center justify-center">
                 <span className="bg-white/80 text-amber-700 font-bold px-6 py-3 rounded-xl shadow-lg border border-amber-200 text-lg">
                   Tickets Not Released
                 </span>
-              </div>
+              </div> */}
             </div>
 
             {/* Event 3 */}
-            <div className="bg-white rounded-xl p-4 lg:p-8 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-6 relative opacity-60 pointer-events-none">
+            <div className="bg-white rounded-xl p-6 lg:p-10 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-8">
               <img
-                src={flyerImg}
+                src={flyerImg1}
                 alt="Concert Flyer Galle"
-                className="rounded-lg shadow-lg w-full md:w-96 h-80 object-cover mb-4 md:mb-0"
+                className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0"
               />
               <div className="flex-1 flex flex-col h-full justify-between">
                 <div>
@@ -167,29 +177,40 @@ const Booking = () => {
                     music.
                   </p>
                   <div className="space-y-2 text-gray-700 mb-4">
-                    <p>📅 February 2, 2026 at 7:30 PM</p>
-                    <p>📍 Hall de Galle, Galle</p>
-                    <p>⏰ Doors open at 7:00 PM</p>
+                    <p>📅 2025 නොවැම්බර් මස 09 වන දින</p>
+                    <p>
+                      📍 රුහුණු විශ්වවිද්‍යාලයීය රබින්ද්‍රනාත් තාගෝර් අනුස්මරණ
+                      සම්මන්ත්‍රණ ශාලාවේදී
+                    </p>
+                    <p>⏰ Doors open at 6:00 PM</p>
                   </div>
                 </div>
                 <motion.button
-                  disabled
-                  className="w-full md:w-auto px-8 py-3 bg-gray-300 text-gray-500 rounded-xl shadow-md cursor-not-allowed"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full md:w-auto"
                 >
-                  Tickets Not Released
+                  <a
+                    href="https://oneticket.lk/S87911909B23F4F4C022D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"
+                  >
+                    Book Now
+                  </a>
                 </motion.button>
               </div>
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* <div className="absolute inset-0 flex items-center justify-center">
                 <span className="bg-white/80 text-amber-700 font-bold px-6 py-3 rounded-xl shadow-lg border border-amber-200 text-lg">
                   Tickets Not Released
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
         </motion.div>
 
         {/*  Ticket Categories */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -217,7 +238,7 @@ const Booking = () => {
               <TicketCard {...ticket} delay={index * 0.1} />
             </a>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

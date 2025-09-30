@@ -14,14 +14,14 @@ import Img7 from "../assets/images/img7.jpg";
 
 const Gallery = () => {
   const images = [
-    { src: Img1, caption: "Previous Concert 01", size: "large" },
-    { src: Img2, caption: "Previous Concert 02", size: "medium" },
-    { src: Img3, caption: "Previous Concert 03", size: "medium" },
-    { src: Img4, caption: "Previous Concert 04", size: "small" },
-    { src: Img5, caption: "Previous Concert 05", size: "small" },
-    { src: Img6, caption: "Previous Concert 06", size: "medium" },
-    { src: Img7, caption: "Previous Concert 07", size: "large" },
-    { src: Img1, caption: "Previous Concert 08", size: "small" },
+    { src: Img1, caption: "Sandakadapahana", size: "large" },
+    { src: Img2, caption: "Sandakadapahana", size: "medium" },
+    { src: Img3, caption: "Sandakadapahana", size: "medium" },
+    { src: Img4, caption: "Sandakadapahana", size: "small" },
+    { src: Img5, caption: "Sandakadapahana", size: "small" },
+    { src: Img6, caption: "Sandakadapahana", size: "medium" },
+    { src: Img7, caption: "Sandakadapahana", size: "large" },
+    { src: Img1, caption: "Sandakadapahana", size: "small" },
   ];
 
   const getSizeClasses = (size) => {

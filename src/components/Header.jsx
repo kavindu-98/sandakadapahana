@@ -7,8 +7,29 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Facebook, Instagram, Twitter } from "lucide-react";
-import { Home, Info, Music, Ticket, Phone } from "lucide-react";
+import {
+  Home,
+  Info,
+  Music,
+  Ticket,
+  Phone,
+  Facebook,
+  Instagram,
+} from "lucide-react";
+
+// Custom TikTok SVG Component
+const TikTokIcon = ({ size = 20, className = "" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M19.321 5.562a5.122 5.122 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.849-1.265-1.933-1.265-3.338h-2.85v15.318c0 1.596-1.295 2.891-2.891 2.891s-2.891-1.295-2.891-2.891 1.295-2.891 2.891-2.891c.316 0 .62.051.904.145V9.956a6.503 6.503 0 0 0-.904-.064C6.919 9.892 3.5 13.311 3.5 17.5s3.419 7.608 7.608 7.608 7.608-3.419 7.608-7.608V9.321c1.265.798 2.765 1.265 4.384 1.265V7.608c-1.085 0-2.085-.335-2.912-.966-.466-.355-.849-.798-1.137-1.295-.145-.249-.258-.516-.322-.785z" />
+  </svg>
+);
+
 import logo from "../assets/images/logo.png";
 import Header1 from "../assets/images/header1.png";
 import Header01 from "../assets/images/header01.png";
@@ -102,9 +123,21 @@ const Header = () => {
   ];
 
   const socials = [
-    { name: "facebook", icon: <Facebook size={20} /> },
-    { name: "instagram", icon: <Instagram size={20} /> },
-    { name: "twitter", icon: <Twitter size={20} /> },
+    {
+      name: "facebook",
+      icon: <Facebook size={20} />,
+      link: "https://www.facebook.com/trioslk",
+    },
+    {
+      name: "instagram",
+      icon: <Instagram size={20} />,
+      link: "https://www.instagram.com/_trioslk_/",
+    },
+    {
+      name: "tiktok",
+      icon: <TikTokIcon size={20} />,
+      link: "https://www.tiktok.com/@trioslk",
+    },
   ];
 
   return (
@@ -450,7 +483,9 @@ const Header = () => {
           {socials.map((social, index) => (
             <motion.a
               key={social.name}
-              href={`#${social.name}`}
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 bg-black/20 backdrop-blur-sm hover:bg-white/20 text-white rounded-full flex items-center justify-center border border-white/20 transition-all duration-300"
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.9 }}

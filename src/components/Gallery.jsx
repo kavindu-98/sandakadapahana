@@ -17,11 +17,11 @@ const Gallery = () => {
     { src: Img1, caption: "Sandakadapahana", size: "large" },
     { src: Img2, caption: "Sandakadapahana", size: "medium" },
     { src: Img3, caption: "Sandakadapahana", size: "medium" },
-    { src: Img4, caption: "Sandakadapahana", size: "small" },
-    { src: Img5, caption: "Sandakadapahana", size: "small" },
-    { src: Img6, caption: "Sandakadapahana", size: "medium" },
+    { src: Img4, caption: "Sandakadapahana", size: "large" },
+    { src: Img5, caption: "Sandakadapahana", size: "medium" },
+    { src: Img6, caption: "Sandakadapahana", size: "large" },
     { src: Img7, caption: "Sandakadapahana", size: "large" },
-    { src: Img1, caption: "Sandakadapahana", size: "small" },
+    { src: Img1, caption: "Sandakadapahana", size: "medium" },
   ];
 
   const getSizeClasses = (size) => {

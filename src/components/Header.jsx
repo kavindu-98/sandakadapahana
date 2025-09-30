@@ -33,6 +33,10 @@ const TikTokIcon = ({ size = 20, className = "" }) => (
 import logo from "../assets/images/logo.png";
 import Header1 from "../assets/images/header1.png";
 import Header01 from "../assets/images/header01.jpg";
+// import Header from "../assets/images/header1.png";
+import Header02 from "../assets/images/header02.jpg";
+// import Header1 from "../assets/images/header1.png";
+import Header03 from "../assets/images/header03.jpg";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -74,13 +78,17 @@ const Header = () => {
       description: "",
     },
     {
-      url: "https://images.unsplash.com/photo-1521546701210-26d8d085d84a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      desktopUrl:
+        "https://images.unsplash.com/photo-1521546701210-26d8d085d84a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      mobileUrl: Header02,
       title: "",
       subtitle: "",
       description: "",
     },
     {
-      url: "https://images.unsplash.com/photo-1546707012-c46675f12716?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      desktopUrl:
+        "https://images.unsplash.com/photo-1546707012-c46675f12716?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      mobileUrl: Header03,
       title: "",
       subtitle: "",
       description: "",

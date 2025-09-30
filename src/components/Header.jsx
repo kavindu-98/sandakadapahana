@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import { Home, Info, Music, Ticket, Phone } from "lucide-react";
 import logo from "../assets/images/logo.png";
+import Header1 from "../assets/images/header1.png";
+import Header01 from "../assets/images/header01.png";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -44,22 +46,23 @@ const Header = () => {
 
   const carouselImages = [
     {
-      url: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "සඳකඩපහන",
-      subtitle: "Sunil Edirisinghe",
-      description: "An evening of timeless melodies and unforgettable memories",
+      desktopUrl: Header1,
+      mobileUrl: Header01,
+      title: "",
+      subtitle: "",
+      description: "",
     },
     {
       url: "https://images.unsplash.com/photo-1521546701210-26d8d085d84a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Experience the Magic",
-      subtitle: "A Night to Remember",
-      description: "Join us for an enchanting musical journey",
+      title: "",
+      subtitle: "",
+      description: "",
     },
     {
       url: "https://images.unsplash.com/photo-1546707012-c46675f12716?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Join Us Live",
-      subtitle: "An Unforgettable Evening",
-      description: "Be part of something extraordinary",
+      title: "",
+      subtitle: "",
+      description: "",
     },
   ];
 
@@ -280,9 +283,22 @@ const Header = () => {
               animate={{ scale: 1 }}
               transition={{ duration: 8, ease: "easeOut" }}
             >
+              {/* Desktop Image */}
               <div
-                className="h-full w-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${image.url})` }}
+                className="hidden lg:block h-full w-full bg-contain bg-center bg-no-repeat bg-gray-900"
+                style={{
+                  backgroundImage: `url(${image.desktopUrl || image.url})`,
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
+              </div>
+
+              {/* Mobile Image */}
+              <div
+                className="block lg:hidden h-full w-full bg-contain bg-center bg-no-repeat bg-gray-900"
+                style={{
+                  backgroundImage: `url(${image.mobileUrl || image.url})`,
+                }}
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
               </div>
@@ -292,102 +308,60 @@ const Header = () => {
 
         {/* Hero Content */}
         <motion.div
-          className="relative h-full flex items-center justify-center z-10 text-center text-white px-4"
+          className="relative h-full flex items-center z-10 text-white px-4"
           style={{ opacity: heroOpacity }}
         >
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -50, scale: 1.1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="space-y-6"
-            >
-              {currentSlide === 0 ? (
-                <motion.div
-                  className="flex justify-center mb-6"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.2, delay: 0.2 }}
-                >
-                  <img
-                    src={logo}
-                    alt="සඳකඩපහන Logo"
-                    className="h-32 sm:h-40 lg:h-48 w-auto drop-shadow-2xl"
-                  />
-                </motion.div>
-              ) : (
-                <motion.h1
-                  className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.2, delay: 0.2 }}
-                >
-                  <span className="bg-gradient-to-r from-white via-amber-100 to-orange-200 bg-clip-text text-transparent drop-shadow-2xl">
-                    {carouselImages[currentSlide].title}
-                  </span>
-                </motion.h1>
-              )}
-
-              <motion.h2
-                className="text-2xl sm:text-3xl lg:text-5xl font-light text-amber-200 mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.4 }}
-              >
-                {carouselImages[currentSlide].subtitle}
-              </motion.h2>
-
-              <motion.p
-                className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.6 }}
-              >
-                {carouselImages[currentSlide].description}
-              </motion.p>
-
+          <div className="w-full max-w-7xl mx-auto relative">
+            <div className="absolute right-8 lg:right-16 max-w-md">
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.8 }}
+                key={currentSlide}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -50, scale: 1.1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="space-y-6 text-right"
               >
-                <motion.a
-                  href="https://oneticket.lk/5YNA1190965E4FD352CB2"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
-                  whileHover={{ scale: 1.05, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.div
+                  className="flex flex-row gap-4 items-center justify-end "
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.8 }}
                 >
-                  <span>Book Now</span>
-                  <svg
-                    className="w-5 h-5 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <motion.a
+                    href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </motion.a>
+                    <span>Book Now</span>
+                    <svg
+                      className="w-5 h-5 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </motion.a>
 
-                <motion.a
-                  href="#about"
-                  className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-lg"
-                  whileHover={{ scale: 1.05, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span>Learn More</span>
-                </motion.a>
+                  <motion.a
+                    href="#about"
+                    className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-lg"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span>Learn More</span>
+                  </motion.a>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
 

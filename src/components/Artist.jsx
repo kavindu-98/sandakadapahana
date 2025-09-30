@@ -12,7 +12,10 @@ const Artist = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden">
+    <div
+      id="artist"
+      className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden"
+    >
       {/* Ambient Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(30)].map((_, i) => (
@@ -93,16 +96,11 @@ const Artist = () => {
             {/* Call to Action */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://oneticket.lk/5YNA1190965E4FD352CB2"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold rounded-full hover:from-amber-700 hover:to-orange-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl text-center"
+                href="#ContactUs"
+                className="px-8 py-4 border-2 border-amber-600 text-amber-700 font-bold rounded-full hover:bg-amber-600 hover:text-white transition-all transform hover:scale-105 text-center inline-block"
               >
-                Get Tickets
+                More Details
               </a>
-              <button className="px-8 py-4 border-2 border-amber-600 text-amber-700 font-bold rounded-full hover:bg-amber-600 hover:text-white transition-all transform hover:scale-105">
-                Learn More
-              </button>
             </div>
           </div>
         </div>

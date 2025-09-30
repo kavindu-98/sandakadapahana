@@ -16,18 +16,16 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 
-// Custom TikTok SVG Component
+// Custom TikTok FontAwesome Component
 const TikTokIcon = ({ size = 20, className = "" }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
+  <FontAwesomeIcon
+    icon={faTiktok}
+    style={{ fontSize: size }}
     className={className}
-  >
-    <path d="M19.321 5.562a5.122 5.122 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.849-1.265-1.933-1.265-3.338h-2.85v15.318c0 1.596-1.295 2.891-2.891 2.891s-2.891-1.295-2.891-2.891 1.295-2.891 2.891-2.891c.316 0 .62.051.904.145V9.956a6.503 6.503 0 0 0-.904-.064C6.919 9.892 3.5 13.311 3.5 17.5s3.419 7.608 7.608 7.608 7.608-3.419 7.608-7.608V9.321c1.265.798 2.765 1.265 4.384 1.265V7.608c-1.085 0-2.085-.335-2.912-.966-.466-.355-.849-.798-1.137-1.295-.145-.249-.258-.516-.322-.785z" />
-  </svg>
+  />
 );
 
 import logo from "../assets/images/logo.png";
@@ -73,6 +71,7 @@ const Header = () => {
     {
       desktopUrl: Header1,
       mobileUrl: Header01,
+      link: "",
       title: "",
       subtitle: "",
       description: "",
@@ -81,6 +80,7 @@ const Header = () => {
       desktopUrl:
         "https://images.unsplash.com/photo-1521546701210-26d8d085d84a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       mobileUrl: Header02,
+      link: "",
       title: "",
       subtitle: "",
       description: "",
@@ -89,6 +89,7 @@ const Header = () => {
       desktopUrl:
         "https://images.unsplash.com/photo-1546707012-c46675f12716?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       mobileUrl: Header03,
+      link: "",
       title: "",
       subtitle: "",
       description: "",
@@ -109,17 +110,12 @@ const Header = () => {
       icon: <Home className="text-[#BAA597] group-hover:text-white" />,
     },
     {
-      href: "#about",
+      href: "#artist",
       label: "About",
       icon: <Info className="text-[#BAA597] group-hover:text-white" />,
     },
     {
-      href: "#events",
-      label: "Events",
-      icon: <Music className="text-[#BAA597] group-hover:text-white" />,
-    },
-    {
-      href: "#tickets",
+      href: "#booking",
       label: "Tickets",
       icon: <Ticket className="text-[#BAA597] group-hover:text-white" />,
     },
@@ -177,7 +173,14 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a href="#home" className="flex items-center">
+                <a
+                  href="#home"
+                  className="flex items-center"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
                   <img src={logo} alt="සඳකඩපහන Logo" className="h-10 w-auto" />
                 </a>
               </motion.div>
@@ -195,6 +198,20 @@ const Header = () => {
                       className="group relative text-white/90 hover:text-white px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/10 backdrop-blur-sm"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById(
+                          link.href.replace("#", "")
+                        );
+                        if (element) {
+                          element.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                          });
+                        } else if (link.href === "#home") {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                      }}
                     >
                       <span className="flex items-center space-x-2">
                         <span className="text-lg">{link.icon}</span>
@@ -209,12 +226,20 @@ const Header = () => {
               {/* CTA Button - Desktop */}
               <div className="hidden lg:block">
                 <motion.a
-                  href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                  href="#booking"
                   className="relative inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById("booking");
+                    if (element) {
+                      element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  }}
                 >
                   <span className="relative z-10">Get Tickets</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -280,7 +305,19 @@ const Header = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                       className="flex items-center space-x-3 text-white/90 hover:text-white hover:bg-white/10 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById(
+                          link.href.replace("#", "")
+                        );
+                        if (element) {
+                          element.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                          });
+                        }
+                        setIsMenuOpen(false);
+                      }}
                       whileHover={{ x: 5 }}
                     >
                       <span className="text-xl">{link.icon}</span>
@@ -294,11 +331,19 @@ const Header = () => {
                     className="pt-4 border-t border-white/10"
                   >
                     <a
-                      href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                      href="#booking"
                       className="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl shadow-lg"
-                      onClick={() => setIsMenuOpen(false)}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById("booking");
+                        if (element) {
+                          element.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                          });
+                        }
+                        setIsMenuOpen(false);
+                      }}
                     >
                       Get Tickets Now
                     </a>
@@ -370,12 +415,20 @@ const Header = () => {
                   transition={{ duration: 1.2, delay: 0.8 }}
                 >
                   <motion.a
-                    href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                    href="#booking"
                     className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.95 }}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.getElementById("booking");
+                      if (element) {
+                        element.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }
+                    }}
                   >
                     <span>Book Now</span>
                     <svg
@@ -394,12 +447,12 @@ const Header = () => {
                   </motion.a>
 
                   <motion.a
-                    href="#about"
+                    href="tel:+94742699814"
                     className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-lg"
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>Learn More</span>
+                    <span>More Details</span>
                   </motion.a>
                 </motion.div>
               </motion.div>
@@ -422,12 +475,10 @@ const Header = () => {
                   transition={{ duration: 1.2, delay: 0.8 }}
                 >
                   <motion.a
-                    href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                    href="#booking"
                     className="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.95 }}
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     <span>Book Now</span>
                     <svg
@@ -507,13 +558,42 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8 }}
             >
-              <motion.a
-                href="https://oneticket.lk/5YNA1190965E4FD352CB2"
-                className="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                className="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg border-0 cursor-pointer"
+                onClick={() => {
+                  console.log("Mobile button clicked!");
+
+                  // Multiple fallback methods for mobile scrolling
+                  const bookingElement = document.getElementById("booking");
+                  console.log("Booking element:", bookingElement);
+
+                  if (bookingElement) {
+                    // Method 1: Standard scroll into view
+                    bookingElement.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  } else {
+                    // Method 2: Fallback scroll to estimated position
+                    const headerHeight = window.innerHeight;
+                    window.scrollTo({
+                      top: headerHeight,
+                      behavior: "smooth",
+                    });
+                  }
+
+                  // Method 3: Additional fallback with delay
+                  setTimeout(() => {
+                    const element = document.getElementById("booking");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }, 200);
+                }}
+                style={{
+                  WebkitTapHighlightColor: "transparent",
+                  touchAction: "manipulation",
+                }}
               >
                 <span>Book Now</span>
                 <svg
@@ -529,7 +609,7 @@ const Header = () => {
                     d="M13 7l5 5m0 0l-5 5m5-5H6"
                   />
                 </svg>
-              </motion.a>
+              </button>
             </motion.div>
 
             {/* Second Row - Learn More Button */}
@@ -539,12 +619,12 @@ const Header = () => {
               transition={{ duration: 1.2, delay: 1.0 }}
             >
               <motion.a
-                href="#about"
+                href="tel:+94742699814"
                 className="w-full inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-lg"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Learn More</span>
+                <span>More Details</span>
               </motion.a>
             </motion.div>
           </motion.div>

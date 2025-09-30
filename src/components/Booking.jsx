@@ -64,50 +64,6 @@ const Booking = () => {
           className="mb-20"
         >
           <div className="space-y-10">
-            {/* Event 1 */}
-            <div className="bg-white rounded-xl p-6 lg:p-10 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-8">
-              <img
-                src={flyerImg2}
-                alt="Concert Flyer Colombo"
-                className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0"
-              />
-              <div className="flex-1 flex flex-col h-full justify-between">
-                <div>
-                  <h2 className="text-2xl lg:text-3xl font-bold text-amber-800 mb-2">
-                    Sandakadapahana - Colombo
-                    <span className="block text-base lg:text-lg text-amber-600 font-semibold mt-1">
-                      සඳකඩපහණ - කොළඹ
-                    </span>
-                  </h2>
-                  <p className="text-gray-600 text-base leading-relaxed mb-4">
-                    Join us for a magical evening with{" "}
-                    <strong>Sunil Edirisingha</strong> in an unforgettable live
-                    performance filled with timeless melodies and cultural
-                    harmony.
-                  </p>
-                  <div className="space-y-2 text-gray-700 mb-4">
-                    <p>📅 2025 නොවැම්බර් මස 15 වන දින</p>
-                    <p>📍 කොළඹ මියුසියස් විද්‍යාලයීය ශ්‍රවණාගාරයේ දී</p>
-                    <p>⏰ Doors open at 7:00 PM</p>
-                  </div>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full md:w-auto"
-                >
-                  <a
-                    href="https://oneticket.lk/5YNA1190965E4FD352CB2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"
-                  >
-                    Book Now
-                  </a>
-                </motion.button>
-              </div>
-            </div>
-
             {/* Event 2 */}
             <div className="bg-white rounded-xl p-6 lg:p-10 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-8">
               <img
@@ -205,6 +161,50 @@ const Booking = () => {
                   Tickets Not Released
                 </span>
               </div> */}
+            </div>
+
+            {/* Event 1 */}
+            <div className="bg-white rounded-xl p-6 lg:p-10 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-8">
+              <img
+                src={flyerImg2}
+                alt="Concert Flyer Colombo"
+                className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0"
+              />
+              <div className="flex-1 flex flex-col h-full justify-between">
+                <div>
+                  <h2 className="text-2xl lg:text-3xl font-bold text-amber-800 mb-2">
+                    Sandakadapahana - Colombo
+                    <span className="block text-base lg:text-lg text-amber-600 font-semibold mt-1">
+                      සඳකඩපහණ - කොළඹ
+                    </span>
+                  </h2>
+                  <p className="text-gray-600 text-base leading-relaxed mb-4">
+                    Join us for a magical evening with{" "}
+                    <strong>Sunil Edirisingha</strong> in an unforgettable live
+                    performance filled with timeless melodies and cultural
+                    harmony.
+                  </p>
+                  <div className="space-y-2 text-gray-700 mb-4">
+                    <p>📅 2025 නොවැම්බර් මස 15 වන දින</p>
+                    <p>📍 කොළඹ මියුසියස් විද්‍යාලයීය ශ්‍රවණාගාරයේ දී</p>
+                    <p>⏰ Doors open at 7:00 PM</p>
+                  </div>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full md:w-auto"
+                >
+                  <a
+                    href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"
+                  >
+                    Book Now
+                  </a>
+                </motion.button>
+              </div>
             </div>
           </div>
         </motion.div>

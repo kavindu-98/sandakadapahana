@@ -7,15 +7,29 @@ import Booking from "./components/Booking";
 import Artist from "./components/Artist";
 import Gallery from "./components/Gallery";
 import ContactUs from "./components/ContactUs";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons";
+
+// Custom TikTok FontAwesome Component for Footer
+const TikTokIcon = ({ size = 22, className = "" }) => (
+  <FontAwesomeIcon
+    icon={faTiktok}
+    style={{ fontSize: size }}
+    className={className}
+  />
+);
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      <Artist />
+      <div id="home">
+        <Header />
+      </div>
+
       {/* <Countdown /> */}
       <Booking />
+      <Artist />
 
       {/* Gallery Section */}
       <Gallery />
@@ -29,25 +43,31 @@ function App() {
             {/* Social Links */}
             <div className="flex space-x-6">
               <a
-                href="#"
+                href="https://www.facebook.com/trioslk"
                 className="text-[#8B7355] hover:text-[#6B5745] transition"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Facebook size={22} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/_trioslk_/"
                 className="text-[#8B7355] hover:text-[#6B5745] transition"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Instagram size={22} />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@trioslk"
                 className="text-[#8B7355] hover:text-[#6B5745] transition"
-                aria-label="Twitter"
+                aria-label="TikTok"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Twitter size={22} />
+                <TikTokIcon size={22} />
               </a>
             </div>
 
@@ -57,10 +77,21 @@ function App() {
             {/* Copyright */}
             <p className="text-gray-600 text-sm text-center">
               &copy; 2025{" "}
-              <span className="font-medium text-[#8B7355]">
-                Sandakadapahana Musical Concert
-              </span>
-              . All rights reserved.
+              <span className="font-medium text-[#8B7355]">trios.lk</span>. All
+              rights reserved.
+            </p>
+
+            {/* Powered by */}
+            <p className="text-gray-500 text-xs text-center">
+              Powered by{" "}
+              <a
+                href="https://www.trios.lk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#8B7355] hover:text-[#6B5745] font-medium transition-colors duration-200 hover:underline"
+              >
+                TRIOSLK
+              </a>
             </p>
           </div>
         </div>

@@ -32,7 +32,7 @@ const TikTokIcon = ({ size = 20, className = "" }) => (
 
 import logo from "../assets/images/logo.png";
 import Header1 from "../assets/images/header1.png";
-import Header01 from "../assets/images/header01.png";
+import Header01 from "../assets/images/header01.jpg";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -345,7 +345,8 @@ const Header = () => {
           style={{ opacity: heroOpacity }}
         >
           <div className="w-full max-w-7xl mx-auto relative">
-            <div className="absolute right-8 lg:right-16 max-w-md">
+            {/* Desktop Hero Content - Right Side */}
+            <div className="hidden lg:block absolute right-8 lg:right-16 max-w-md">
               <motion.div
                 key={currentSlide}
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -355,7 +356,7 @@ const Header = () => {
                 className="space-y-6 text-right"
               >
                 <motion.div
-                  className="flex flex-row gap-4 items-center justify-end "
+                  className="flex flex-row gap-4 items-center justify-end"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, delay: 0.8 }}
@@ -395,6 +396,65 @@ const Header = () => {
                 </motion.div>
               </motion.div>
             </div>
+
+            {/* Mobile Hero Content - Bottom Center with Two Rows */}
+            {/* <div className="lg:hidden absolute bottom-12 left-1/2 transform -translate-x-1/2 w-full max-w-sm z-30">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -50, scale: 1.1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="space-y-4 text-center px-4"
+              >
+              
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.8 }}
+                >
+                  <motion.a
+                    href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                    className="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Book Now</span>
+                    <svg
+                      className="w-5 h-5 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </motion.a>
+                </motion.div>
+
+               
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: 1.0 }}
+                >
+                  <motion.a
+                    href="#about"
+                    className="w-full inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-lg"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span>Learn More</span>
+                  </motion.a>
+                </motion.div>
+              </motion.div>
+            </div> */}
           </div>
         </motion.div>
 
@@ -422,6 +482,64 @@ const Header = () => {
               )}
             </motion.button>
           ))}
+        </div>
+        {/* Mobile Hero Content - Bottom Center with Two Rows */}
+        <div className="lg:hidden absolute bottom-14 left-1/2 transform -translate-x-1/2 w-[60%] max-w-sm z-30">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -50, scale: 1.1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="space-y-4 text-center px-4"
+          >
+            {/* First Row - Book Now Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.8 }}
+            >
+              <motion.a
+                href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                className="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Book Now</span>
+                <svg
+                  className="w-5 h-5 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </motion.a>
+            </motion.div>
+
+            {/* Second Row - Learn More Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 1.0 }}
+            >
+              <motion.a
+                href="#about"
+                className="w-full inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-lg"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span>Learn More</span>
+              </motion.a>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Sleek Navigation Arrows */}

@@ -619,7 +619,7 @@ const Header = () => {
             </motion.div>
 
             {/* Second Row - Learn More Button */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 1.0 }}
@@ -632,7 +632,7 @@ const Header = () => {
               >
                 <span>More Details</span>
               </motion.a>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
 

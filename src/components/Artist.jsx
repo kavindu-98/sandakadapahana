@@ -1,7 +1,7 @@
 /** @format */
 
 import { Award, Music, Calendar, Users } from "lucide-react";
-import sunilImg from "../assets/images/sunil-edirisinghe.png";
+import sunilImg from "../assets/images/sunil-edirisinghe.webp";
 
 const Artist = () => {
   const achievements = [

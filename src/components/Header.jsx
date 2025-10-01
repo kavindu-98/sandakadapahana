@@ -29,12 +29,12 @@ const TikTokIcon = ({ size = 20, className = "" }) => (
 );
 
 import logo from "../assets/images/logo.png";
-import Header1 from "../assets/images/header1.png";
-import Header01 from "../assets/images/header01.png";
-import Header2 from "../assets/images/header2.png";
-import Header02 from "../assets/images/header02.png";
-import Header3 from "../assets/images/header3.png";
-import Header03 from "../assets/images/header03.png";
+import Header1 from "../assets/images/header1.webp";
+import Header01 from "../assets/images/header01.webp";
+import Header2 from "../assets/images/header2.webp";
+import Header02 from "../assets/images/header02.webp";
+import Header3 from "../assets/images/header3.webp";
+import Header03 from "../assets/images/header03.webp";
 
 const Header = () => {
   const [show, setShow] = useState(true);

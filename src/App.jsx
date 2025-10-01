@@ -10,6 +10,7 @@ import ContactUs from "./components/ContactUs";
 import { Facebook, Instagram } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
+import { Analytics } from "@vercel/analytics/react";
 
 // Custom TikTok FontAwesome Component for Footer
 const TikTokIcon = ({ size = 22, className = "" }) => (
@@ -35,6 +36,7 @@ function App() {
       <Gallery />
       {/* Contact Section */}
       <ContactUs />
+      <Analytics />
 
       {/* Footer */}
       <footer className="bg-gradient-to-b from-white to-[#F5EBE0] py-10 mt-16">

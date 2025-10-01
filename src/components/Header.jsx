@@ -30,11 +30,11 @@ const TikTokIcon = ({ size = 20, className = "" }) => (
 
 import logo from "../assets/images/logo.png";
 import Header1 from "../assets/images/header1.png";
-import Header01 from "../assets/images/header01.jpg";
-// import Header from "../assets/images/header1.png";
-import Header02 from "../assets/images/header02.jpg";
-// import Header1 from "../assets/images/header1.png";
-import Header03 from "../assets/images/header03.jpg";
+import Header01 from "../assets/images/header01.png";
+import Header2 from "../assets/images/header2.png";
+import Header02 from "../assets/images/header02.png";
+import Header3 from "../assets/images/header3.png";
+import Header03 from "../assets/images/header03.png";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -77,8 +77,7 @@ const Header = () => {
       description: "",
     },
     {
-      desktopUrl:
-        "https://images.unsplash.com/photo-1521546701210-26d8d085d84a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      desktopUrl: Header2,
       mobileUrl: Header02,
       link: "",
       title: "",
@@ -86,8 +85,7 @@ const Header = () => {
       description: "",
     },
     {
-      desktopUrl:
-        "https://images.unsplash.com/photo-1546707012-c46675f12716?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      desktopUrl: Header3,
       mobileUrl: Header03,
       link: "",
       title: "",
@@ -398,18 +396,26 @@ const Header = () => {
           style={{ opacity: heroOpacity }}
         >
           <div className="w-full max-w-7xl mx-auto relative">
-            {/* Desktop Hero Content - Right Side */}
-            <div className="hidden lg:block absolute right-8 lg:right-16 max-w-md">
+            {/* Desktop Hero Content - Dynamic Positioning */}
+            <div
+              className={`hidden lg:block absolute max-w-md ${
+                currentSlide === 1 ? "left-4 lg:left-8" : "right-4 lg:right-8"
+              }`}
+            >
               <motion.div
                 key={currentSlide}
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -50, scale: 1.1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="space-y-6 text-right"
+                className={`space-y-6 ${
+                  currentSlide === 1 ? "text-left" : "text-right"
+                }`}
               >
                 <motion.div
-                  className="flex flex-row gap-4 items-center justify-end"
+                  className={`flex flex-row gap-4 items-center ${
+                    currentSlide === 1 ? "justify-start" : "justify-end"
+                  }`}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, delay: 0.8 }}

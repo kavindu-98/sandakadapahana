@@ -96,7 +96,7 @@ const Artist = () => {
             {/* Call to Action */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="#ContactUs"
+                href="#contact"
                 className="px-8 py-4 border-2 border-amber-600 text-amber-700 font-bold rounded-full hover:bg-amber-600 hover:text-white transition-all transform hover:scale-105 text-center inline-block"
               >
                 More Details

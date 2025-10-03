@@ -206,7 +206,7 @@ const Artist = () => {
             {/* Biography */}
             <div className="space-y-4">
               <p className="text-amber-900 leading-relaxed text-lg">
-                Sankani Edirisinghe සංඛනී එදිරිසිංහ is the daughter of the
+                Sankani Edirisinghe is the daughter of the
                 celebrated Sri Lankan classical singer Sunil Edirisinghe and
                 Nandani "Kumudu" Munasinghe. She has grown up immersed in music,
                 and is recognized for her vocal talent, appearing in musical

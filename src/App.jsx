@@ -7,6 +7,7 @@ import Booking from "./components/Booking";
 import Artist from "./components/Artist";
 import Gallery from "./components/Gallery";
 import ContactUs from "./components/ContactUs";
+import Whatsapp from "./components/Whatsapp";
 import { Facebook, Instagram } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
@@ -36,6 +37,10 @@ function App() {
       <Gallery />
       {/* Contact Section */}
       <ContactUs />
+
+      {/* WhatsApp Widget */}
+      <Whatsapp />
+
       <Analytics />
 
       {/* Footer */}

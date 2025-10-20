@@ -28,3 +28,76 @@ html {
 body {
   -ms-overflow-style: none; /* IE and Edge */
 }
+
+/* WhatsApp Widget Styles */
+.whatsapp-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.whatsapp-text {
+  background: #25d366;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.whatsapp-text a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.whatsapp-text a:hover {
+  text-decoration: none;
+}
+
+.whatsapp-widget:hover .whatsapp-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .whatsapp-widget {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-text {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}

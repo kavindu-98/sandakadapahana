@@ -8,7 +8,7 @@ const Whatsapp = () => {
       <span className="whatsapp-text">
         Need Help?{" "}
         <a
-          href="https://wa.me/94742699814?text=Hello%2C%20how%20can%20I%20get%20more%20info%3F"
+          href="https://wa.me/94771216123?text=Hello%2C%20Can%20I%20know%20more%20details%20about%20Sandakadapahana%20Concert%3F"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -16,7 +16,7 @@ const Whatsapp = () => {
         </a>
       </span>
       <a
-        href="https://wa.me/94719551405?text=Hello%2C%20how%20can%20I%20help%20you%3F"
+        href="https://wa.me/94771216123?text=Hello%2C%20Can%20I%20know%20more%20details%20about%20Sandakadapahana%20Concert%3F"
         target="_blank"
         rel="noopener noreferrer"
       >

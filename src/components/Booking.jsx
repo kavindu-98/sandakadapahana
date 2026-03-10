@@ -1,9 +1,9 @@
 /** @format */
 
 import { motion } from "framer-motion";
-import flyerImg1 from "../assets/images/flyer1.jpg";
-import flyerImg2 from "../assets/images/flyer2.jpg";
-import flyerImg3 from "../assets/images/flyer3.jpg";
+// import flyerImg1 from "../assets/images/flyer1.jpg";
+import flyerImg2 from "../assets/images/flyer2.webp";
+// import flyerImg3 from "../assets/images/flyer3.jpg";
 
 const TicketCard = ({ category, price, popular = false, delay = 0 }) => (
   <motion.div
@@ -74,9 +74,9 @@ const Booking = () => {
               <div className="flex-1 flex flex-col h-full justify-between">
                 <div>
                   <h2 className="text-2xl lg:text-3xl font-bold text-amber-800 mb-2">
-                    Sandakadapahana - Colombo
+                    Sandakadapahana - Sugathadasa Indoor Stadium
                     <span className="block text-base lg:text-lg text-amber-600 font-semibold mt-1">
-                      සඳකඩපහණ - කොළඹ
+                      සඳකඩපහණ - සුගතදාස ගෘහස්ථ ක්‍රිඩාංගනය
                     </span>
                   </h2>
                   <p className="text-gray-600 text-base leading-relaxed mb-4">
@@ -86,8 +86,8 @@ const Booking = () => {
                     harmony.
                   </p>
                   <div className="space-y-2 text-gray-700 mb-4">
-                    <p>📅 2025 නොවැම්බර් මස 15 වන දින</p>
-                    <p>📍 කොළඹ මියුසියස් විද්‍යාලයීය ශ්‍රවණාගාරයේ දී</p>
+                    <p>📅 2026 ජූලි මස 25 වන දින</p>
+                    <p>📍 කොළඹ සුගතදාස ගෘහස්ථ ක්‍රිඩාංගනයේ දී</p>
                     <p>⏰ Doors open at 7:00 PM</p>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ const Booking = () => {
             </div>
 
             {/* Event 2 - Kandy (Successfully Held) */}
-            <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8 opacity-75">
+            {/* <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8 opacity-75">
               <img
                 src={flyerImg3}
                 alt="Concert Flyer Kandy"
@@ -147,10 +147,10 @@ const Booking = () => {
                   <span>Successfully Completed</span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Event 3 - Matara (Successfully Held) */}
-            <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8 opacity-75">
+            {/* <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8 opacity-75">
               <img
                 src={flyerImg1}
                 alt="Concert Flyer Galle"
@@ -191,7 +191,7 @@ const Booking = () => {
                   <span>Successfully Completed</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </motion.div>
 

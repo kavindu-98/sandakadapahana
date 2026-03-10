@@ -29,12 +29,13 @@ const TikTokIcon = ({ size = 20, className = "" }) => (
 );
 
 import logo from "../assets/images/logo.png";
+import logo2 from "../assets/images/logo2.png";
 import Header1 from "../assets/images/header1.webp";
 import Header01 from "../assets/images/header01.webp";
-import Header2 from "../assets/images/header2.webp";
-import Header02 from "../assets/images/header02.webp";
-import Header3 from "../assets/images/header3.webp";
-import Header03 from "../assets/images/header03.webp";
+// import Header2 from "../assets/images/header2.webp";
+// import Header02 from "../assets/images/header02.webp";
+// import Header3 from "../assets/images/header3.webp";
+// import Header03 from "../assets/images/header03.webp";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -76,22 +77,22 @@ const Header = () => {
       subtitle: "",
       description: "",
     },
-    {
-      desktopUrl: Header2,
-      mobileUrl: Header02,
-      link: "",
-      title: "",
-      subtitle: "",
-      description: "",
-    },
-    {
-      desktopUrl: Header3,
-      mobileUrl: Header03,
-      link: "",
-      title: "",
-      subtitle: "",
-      description: "",
-    },
+    // {
+    //   desktopUrl: Header1,
+    //   mobileUrl: Header01,
+    //   link: "",
+    //   title: "",
+    //   subtitle: "",
+    //   description: "",
+    // },
+    // {
+    //   desktopUrl: Header3,
+    //   mobileUrl: Header03,
+    //   link: "",
+    //   title: "",
+    //   subtitle: "",
+    //   description: "",
+    // },
   ];
 
   useEffect(() => {
@@ -199,7 +200,7 @@ const Header = () => {
                       onClick={(e) => {
                         e.preventDefault();
                         const element = document.getElementById(
-                          link.href.replace("#", "")
+                          link.href.replace("#", ""),
                         );
                         if (element) {
                           element.scrollIntoView({
@@ -306,7 +307,7 @@ const Header = () => {
                       onClick={(e) => {
                         e.preventDefault();
                         const element = document.getElementById(
-                          link.href.replace("#", "")
+                          link.href.replace("#", ""),
                         );
                         if (element) {
                           element.scrollIntoView({
@@ -420,6 +421,14 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, delay: 0.8 }}
                 >
+                  {/* <motion.img
+                    src={logo2}
+                    alt="Logo 2"
+                    className="h-16 w-auto"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.9 }}
+                  /> */}
                   <motion.a
                     href="#booking"
                     className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
@@ -640,7 +649,7 @@ const Header = () => {
         <motion.button
           onClick={() =>
             setCurrentSlide(
-              currentSlide === 0 ? carouselImages.length - 1 : currentSlide - 1
+              currentSlide === 0 ? carouselImages.length - 1 : currentSlide - 1,
             )
           }
           className="absolute left-4 lg:left-8 top-1/2 transform -translate-y-1/2 z-20 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white p-3 rounded-full border border-white/20 transition-all duration-300 hover:scale-110"

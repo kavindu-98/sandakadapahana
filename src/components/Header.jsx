@@ -29,7 +29,6 @@ const TikTokIcon = ({ size = 20, className = "" }) => (
 );
 
 import logo from "../assets/images/logo.png";
-import logo2 from "../assets/images/logo2.png";
 import Header1 from "../assets/images/header1.webp";
 import Header01 from "../assets/images/header01.webp";
 // import Header2 from "../assets/images/header2.webp";
@@ -421,14 +420,6 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, delay: 0.8 }}
                 >
-                  {/* <motion.img
-                    src={logo2}
-                    alt="Logo 2"
-                    className="h-16 w-auto"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.9 }}
-                  /> */}
                   <motion.a
                     href="#booking"
                     className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"

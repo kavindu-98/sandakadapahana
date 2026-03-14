@@ -198,7 +198,7 @@ const Booking = () => {
                       </div>
                     </div>
                     <a
-                      href="https://www.facebook.com/trioslk"
+                      href="https://www.facebook.com/media/set/?set=a.912613855045709&type=3"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition-all font-bold text-center inline-block cursor-pointer"

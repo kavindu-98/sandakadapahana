@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import flyerImg1 from "../assets/images/flyer1.jpg";
 import flyerImg2 from "../assets/images/flyer2.jpg";
 import flyerImg3 from "../assets/images/flyer3.jpg";
-import flyerImg4 from "../assets/images/flyer4.png";
+import flyerImg4 from "../assets/images/flyer4.webp";
 
 const TicketCard = ({ category, price, popular = false, delay = 0 }) => (
   <motion.div

@@ -1,9 +1,10 @@
 /** @format */
 
 import { motion } from "framer-motion";
-// import flyerImg1 from "../assets/images/flyer1.jpg";
-import flyerImg2 from "../assets/images/flyer2.webp";
-// import flyerImg3 from "../assets/images/flyer3.jpg";
+import flyerImg1 from "../assets/images/flyer1.jpg";
+import flyerImg2 from "../assets/images/flyer2.jpg";
+import flyerImg3 from "../assets/images/flyer3.jpg";
+import flyerImg4 from "../assets/images/flyer4.png";
 
 const TicketCard = ({ category, price, popular = false, delay = 0 }) => (
   <motion.div
@@ -67,7 +68,7 @@ const Booking = () => {
             {/* Event 1 */}
             <div className="bg-white rounded-xl p-6 lg:p-10 shadow-md border border-gray-200 flex flex-col md:flex-row items-center gap-8">
               <img
-                src={flyerImg2}
+                src={flyerImg4}
                 alt="Concert Flyer Colombo"
                 className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0"
               />
@@ -97,7 +98,7 @@ const Booking = () => {
                   className="w-full md:w-auto"
                 >
                   <a
-                    href="https://oneticket.lk/5YNA1190965E4FD352CB2"
+                    href="https://oneticket.lk/ALYM1192B17884D52985A"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"
@@ -108,90 +109,154 @@ const Booking = () => {
               </div>
             </div>
 
-            {/* Event 2 - Kandy (Successfully Held) */}
-            {/* <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8 opacity-75">
-              <img
-                src={flyerImg3}
-                alt="Concert Flyer Kandy"
-                className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0 grayscale"
-              />
-              <div className="flex-1 flex flex-col h-full justify-between">
-                <div>
-                  <h2 className="text-2xl lg:text-3xl font-bold text-gray-600 mb-2">
-                    Sandakadapahana - Kandy
-                    <span className="block text-base lg:text-lg text-gray-500 font-semibold mt-1">
-                      සඳකඩපහණ - මහනුවර
-                    </span>
-                  </h2>
-                  <p className="text-gray-500 text-base leading-relaxed mb-4">
-                    Experience the magic of <strong>Sunil Edirisingha</strong>
-                    in the hill capital with a night of classical music and
-                    culture.
-                  </p>
-                  <div className="space-y-2 text-gray-500 mb-4">
-                    <p>📅 2025 නොවැම්බර් මස 04 වන දින</p>
-                    <p>📍 පේරාදෙණිය විශ්වවිද්‍යාලයීය ගෘහස්ථ ක්‍රීඩාගාරයේදී</p>
-                    <p>⏰ Doors open at 6:00 PM</p>
+            {/* Past Events Section */}
+            <div className="mt-20 pt-12 border-t-2 border-gray-300">
+              <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-8 text-center">
+                Past Events
+              </h3>
+              <div className="space-y-10">
+                <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8">
+                  <div className="relative">
+                    <img
+                      src={flyerImg2}
+                      alt="Concert Flyer Colombo"
+                      className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0 grayscale"
+                    />
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg border-2 border-amber-400 text-sm flex items-center gap-2">
+                        <span className="text-xl">✅</span>
+                        <span>Successfully Completed</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-1 flex flex-col h-full justify-between">
+                    <div>
+                      <h2 className="text-2xl lg:text-3xl font-bold text-gray-600 mb-2">
+                        Sandakadapahana - Colombo
+                        <span className="block text-base lg:text-lg text-gray-500 font-semibold mt-1">
+                          සඳකඩපහණ - කොළඹ
+                        </span>
+                      </h2>
+                      <p className="text-gray-500 text-base leading-relaxed mb-4">
+                        Join us for a magical evening with{" "}
+                        <strong>Sunil Edirisingha</strong> in an unforgettable
+                        live performance filled with timeless melodies and
+                        cultural harmony.
+                      </p>
+                      <div className="space-y-2 text-gray-500 mb-4">
+                        <p>📅 2025 නොවැම්බර් මස 15 වන දින</p>
+                        <p>📍 කොළඹ මියුසියස් විද්‍යාලයීය ශ්‍රවණාගාරයේ දී</p>
+                        <p>⏰ Doors open at 7:00 PM</p>
+                      </div>
+                    </div>
+                    <a
+                      href="https://www.facebook.com/trioslk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition-all font-bold text-center inline-block cursor-pointer"
+                    >
+                      Show Album
+                    </a>
                   </div>
                 </div>
-                <button
-                  disabled
-                  className="w-full md:w-auto px-8 py-3 bg-gray-400 text-white rounded-xl shadow-md font-bold text-center cursor-not-allowed"
-                >
-                  Event Completed
-                </button>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg border-2 border-amber-400 text-lg flex items-center gap-3">
-                  <span className="text-2xl">✅</span>
-                  <span>Successfully Completed</span>
-                </div>
-              </div>
-            </div> */}
 
-            {/* Event 3 - Matara (Successfully Held) */}
-            {/* <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8 opacity-75">
-              <img
-                src={flyerImg1}
-                alt="Concert Flyer Galle"
-                className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0 grayscale"
-              />
-              <div className="flex-1 flex flex-col h-full justify-between">
-                <div>
-                  <h2 className="text-2xl lg:text-3xl font-bold text-gray-600 mb-2">
-                    Sandakadapahana - Matara
-                    <span className="block text-base lg:text-lg text-gray-500 font-semibold mt-1">
-                      සඳකඩපහණ - මාතර
-                    </span>
-                  </h2>
-                  <p className="text-gray-500 text-base leading-relaxed mb-4">
-                    Don’t miss <strong>Sunil Edirisingha</strong> performing
-                    live by the southern coast for a night of unforgettable
-                    music.
-                  </p>
-                  <div className="space-y-2 text-gray-500 mb-4">
-                    <p>📅 2025 නොවැම්බර් මස 09 වන දින</p>
-                    <p>
-                      📍 රුහුණු විශ්වවිද්‍යාලයීය රබින්ද්‍රනාත් තාගෝර් අනුස්මරණ
-                      සම්මන්ත්‍රණ ශාලාවේදී
-                    </p>
-                    <p>⏰ Doors open at 6:00 PM</p>
+                {/* Event 2 - Kandy (Successfully Held) */}
+                <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8">
+                  <div className="relative">
+                    <img
+                      src={flyerImg3}
+                      alt="Concert Flyer Kandy"
+                      className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0 grayscale"
+                    />
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg border-2 border-amber-400 text-sm flex items-center gap-2">
+                        <span className="text-xl">✅</span>
+                        <span>Successfully Completed</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-1 flex flex-col h-full justify-between">
+                    <div>
+                      <h2 className="text-2xl lg:text-3xl font-bold text-gray-600 mb-2">
+                        Sandakadapahana - Kandy
+                        <span className="block text-base lg:text-lg text-gray-500 font-semibold mt-1">
+                          සඳකඩපහණ - මහනුවර
+                        </span>
+                      </h2>
+                      <p className="text-gray-500 text-base leading-relaxed mb-4">
+                        Experience the magic of{" "}
+                        <strong>Sunil Edirisingha</strong>
+                        in the hill capital with a night of classical music and
+                        culture.
+                      </p>
+                      <div className="space-y-2 text-gray-500 mb-4">
+                        <p>📅 2025 නොවැම්බර් මස 04 වන දින</p>
+                        <p>
+                          📍 පේරාදෙණිය විශ්වවිද්‍යාලයීය ගෘහස්ථ ක්‍රීඩාගාරයේදී
+                        </p>
+                        <p>⏰ Doors open at 6:00 PM</p>
+                      </div>
+                    </div>
+                    <a
+                      href="https://www.facebook.com/trioslk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition-all font-bold text-center inline-block cursor-pointer"
+                    >
+                      Show Album
+                    </a>
                   </div>
                 </div>
-                <button
-                  disabled
-                  className="w-full md:w-auto px-8 py-3 bg-gray-400 text-white rounded-xl shadow-md font-bold text-center cursor-not-allowed"
-                >
-                  Event Completed
-                </button>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg border-2 border-amber-400 text-lg flex items-center gap-3">
-                  <span className="text-2xl">✅</span>
-                  <span>Successfully Completed</span>
+
+                {/* Event 3 - Matara (Successfully Held) */}
+                <div className="relative bg-gray-100 rounded-xl p-6 lg:p-10 shadow-md border border-gray-300 flex flex-col md:flex-row items-center gap-8">
+                  <div className="relative">
+                    <img
+                      src={flyerImg1}
+                      alt="Concert Flyer Matara"
+                      className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0 grayscale"
+                    />
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg border-2 border-amber-400 text-sm flex items-center gap-2">
+                        <span className="text-xl">✅</span>
+                        <span>Successfully Completed</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-1 flex flex-col h-full justify-between">
+                    <div>
+                      <h2 className="text-2xl lg:text-3xl font-bold text-gray-600 mb-2">
+                        Sandakadapahana - Matara
+                        <span className="block text-base lg:text-lg text-gray-500 font-semibold mt-1">
+                          සඳකඩපහණ - මාතර
+                        </span>
+                      </h2>
+                      <p className="text-gray-500 text-base leading-relaxed mb-4">
+                        Don’t miss <strong>Sunil Edirisingha</strong> performing
+                        live by the southern coast for a night of unforgettable
+                        music.
+                      </p>
+                      <div className="space-y-2 text-gray-500 mb-4">
+                        <p>📅 2025 නොවැම්බර් මස 09 වන දින</p>
+                        <p>
+                          📍 රුහුණු විශ්වවිද්‍යාලයීය රබින්ද්‍රනාත් තාගෝර්
+                          අනුස්මරණ සම්මන්ත්‍රණ ශාලාවේදී
+                        </p>
+                        <p>⏰ Doors open at 6:00 PM</p>
+                      </div>
+                    </div>
+                    <a
+                      href="https://www.facebook.com/media/set/?set=a.975036205470140&type=3"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition-all font-bold text-center inline-block cursor-pointer"
+                    >
+                      Show Album
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </motion.div>
 

@@ -98,7 +98,7 @@ const Booking = () => {
                   className="w-full md:w-auto"
                 >
                   <a
-                    href="https://oneticket.lk/ALYM1192B17884D52985A"
+                    href="https://oneticket.lk/HOLP1192B1868078E6C98"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"

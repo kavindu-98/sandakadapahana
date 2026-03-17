@@ -40,11 +40,11 @@ const TicketCard = ({ category, price, popular = false, delay = 0 }) => (
 
 const Booking = () => {
   const ticketCategories = [
-    { category: "Balcony", price: "3,000.00" },
-    { category: "Bronze", price: "5,000.00" },
-    { category: "Silver", price: "7,500.00" },
-    { category: "Gold", price: "10,000.00", popular: true },
-    { category: "VIP", price: "15,000.00" },
+    { category: "Standing", price: "2,500.00" },
+    { category: "Bronze", price: "4,500.00" },
+    { category: "Silver", price: "6,500.00" },
+    { category: "Gold", price: "10,000.00", popular: true, reserved: true },
+    { category: "VIP", price: "15,000.00", reserved: true, parking: true },
   ];
 
   return (
@@ -89,13 +89,45 @@ const Booking = () => {
                   <div className="space-y-2 text-gray-700 mb-4">
                     <p>📅 2026 ජූලි මස 25 වන දින</p>
                     <p>📍 කොළඹ සුගතදාස ගෘහස්ථ ක්‍රිඩාංගනයේ දී</p>
-                    <p>⏰ Doors open at 7:00 PM</p>
+                    <p>⏰ Gates open at 4:00 PM</p>
+                  </div>
+
+                  {/* Ticket Categories */}
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <h4 className="text-sm font-bold text-amber-800 mb-3">
+                      ප්‍රවේශපත්
+                    </h4>
+                    <div className="space-y-1 text-sm">
+                      {ticketCategories.map((ticket) => (
+                        <div
+                          key={ticket.category}
+                          className="flex justify-between"
+                        >
+                          <span className="text-gray-700">
+                            {ticket.category}
+                            {ticket.reserved && (
+                              <span className="text-amber-600 text-xs ml-2">
+                                (Reserved)
+                              </span>
+                            )}
+                            {ticket.parking && (
+                              <span className="text-green-600 text-xs ml-2">
+                                +Parking
+                              </span>
+                            )}
+                          </span>
+                          <span className="font-semibold text-amber-800">
+                            LKR {ticket.price}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full md:w-auto"
+                  className="w-full md:w-auto mt-6"
                 >
                   <a
                     href="https://oneticket.lk/HOLP1192B1868078E6C98"

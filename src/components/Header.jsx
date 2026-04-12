@@ -224,20 +224,12 @@ const Header = () => {
               {/* CTA Button - Desktop */}
               <div className="hidden lg:block">
                 <motion.a
-                  href="#booking"
+                  href="https://oneticket.lk/event/HOLP1192B1868078E6C98/seats"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="relative inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const element = document.getElementById("booking");
-                    if (element) {
-                      element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
-                    }
-                  }}
                 >
                   <span className="relative z-10">Get Tickets</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -329,19 +321,11 @@ const Header = () => {
                     className="pt-4 border-t border-white/10"
                   >
                     <a
-                      href="#booking"
+                      href="https://oneticket.lk/event/HOLP1192B1868078E6C98/seats"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl shadow-lg"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const element = document.getElementById("booking");
-                        if (element) {
-                          element.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                          });
-                        }
-                        setIsMenuOpen(false);
-                      }}
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       Get Tickets Now
                     </a>
@@ -421,20 +405,12 @@ const Header = () => {
                   transition={{ duration: 1.2, delay: 0.8 }}
                 >
                   <motion.a
-                    href="#booking"
+                    href="https://oneticket.lk/event/HOLP1192B1868078E6C98/seats"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg"
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.getElementById("booking");
-                      if (element) {
-                        element.scrollIntoView({
-                          behavior: "smooth",
-                          block: "start",
-                        });
-                      }
-                    }}
                   >
                     <span>Book Now</span>
                     <svg
@@ -564,38 +540,11 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8 }}
             >
-              <button
+              <a
+                href="https://oneticket.lk/event/HOLP1192B1868078E6C98/seats"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 text-lg border-0 cursor-pointer"
-                onClick={() => {
-                  console.log("Mobile button clicked!");
-
-                  // Multiple fallback methods for mobile scrolling
-                  const bookingElement = document.getElementById("booking");
-                  console.log("Booking element:", bookingElement);
-
-                  if (bookingElement) {
-                    // Method 1: Standard scroll into view
-                    bookingElement.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
-                  } else {
-                    // Method 2: Fallback scroll to estimated position
-                    const headerHeight = window.innerHeight;
-                    window.scrollTo({
-                      top: headerHeight,
-                      behavior: "smooth",
-                    });
-                  }
-
-                  // Method 3: Additional fallback with delay
-                  setTimeout(() => {
-                    const element = document.getElementById("booking");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 200);
-                }}
                 style={{
                   WebkitTapHighlightColor: "transparent",
                   touchAction: "manipulation",
@@ -615,7 +564,7 @@ const Header = () => {
                     d="M13 7l5 5m0 0l-5 5m5-5H6"
                   />
                 </svg>
-              </button>
+              </a>
             </motion.div>
 
             {/* Second Row - Learn More Button */}

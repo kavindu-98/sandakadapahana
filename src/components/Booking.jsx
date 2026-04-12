@@ -130,7 +130,7 @@ const Booking = () => {
                   className="w-full md:w-auto mt-6"
                 >
                   <a
-                    href="https://oneticket.lk/HOLP1192B1868078E6C98"
+                    href="https://oneticket.lk/event/HOLP1192B1868078E6C98/seats"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"

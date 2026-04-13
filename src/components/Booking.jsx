@@ -5,6 +5,7 @@ import flyerImg1 from "../assets/images/flyer1.jpg";
 import flyerImg2 from "../assets/images/flyer2.jpg";
 import flyerImg3 from "../assets/images/flyer3.jpg";
 import flyerImg4 from "../assets/images/flyer4.webp";
+import flyerImg5 from "../assets/images/flyer5.jpg";
 
 const TicketCard = ({ category, price, popular = false, delay = 0 }) => (
   <motion.div
@@ -45,6 +46,13 @@ const Booking = () => {
     { category: "Silver", price: "6,500.00" },
     { category: "Gold", price: "10,000.00", popular: true, reserved: true },
     { category: "VIP", price: "15,000.00", reserved: true, parking: true },
+  ];
+  const ticketCategories2 = [
+    { category: "Balcony", price: "1,500.00" },
+    { category: "Bronze", price: "2,500.00" },
+    { category: "Silver", price: "5,000.00" },
+    { category: "Gold", price: "6,500.00", popular: true },
+    { category: "VIP", price: "10,000.00", parking: true },
   ];
 
   return (
@@ -130,10 +138,88 @@ const Booking = () => {
                   className="w-full md:w-auto mt-6"
                 >
                   <a
-                    href="https://oneticket.lk/event/HOLP1192B1868078E6C98/seats"
+                    href="https://oneticket.lk/event/HOLP1192B1868078E6C98"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block px-8 py-3 bg-amber-700 text-white rounded-xl shadow-md hover:bg-amber-800 transition-all font-bold text-center"
+                  >
+                    Book Now
+                  </a>
+                </motion.button>
+              </div>
+            </div>
+            {/* Event 2 */}
+            <div className="relative bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 lg:p-10 shadow-md border-2 border-orange-300 flex flex-col md:flex-row items-center gap-8">
+              <img
+                src={flyerImg5}
+                alt="Concert Flyer Polonnaruwa"
+                className="rounded-lg shadow-lg w-full md:w-[450px] h-96 md:h-[500px] object-contain bg-white mb-4 md:mb-0"
+              />
+              <div className="flex-1 flex flex-col h-full justify-between">
+                <div>
+                  <h2 className="text-2xl lg:text-3xl font-bold text-orange-900 mb-2">
+                    Sandakadapahana - Polonnaruwa
+                    <span className="block text-base lg:text-lg text-orange-700 font-semibold mt-1">
+                      සඳකඩපහණ - පොළොන්නරුව
+                    </span>
+                  </h2>
+                  <p className="text-gray-700 text-base leading-relaxed mb-4">
+                    Join us for a magical evening with{" "}
+                    <strong>Sunil Edirisingha</strong> in an unforgettable live
+                    performance filled with timeless melodies and cultural
+                    harmony.
+                  </p>
+                  <div className="space-y-2 text-gray-800 mb-4">
+                    <p>📅 2026 ජූලි මස 28 වන දින</p>
+                    <p>
+                      📍 පොළොන්නරුව රාජකීය විද්‍යාලයීය මෛත්‍රී ශිල්ප කලා
+                      මණ්ඩපයේදී
+                    </p>
+                    <p>⏰ Gates open at 6:00 PM</p>
+                  </div>
+
+                  {/* Ticket Categories */}
+                  <div className="mt-4 pt-4 border-t border-orange-200">
+                    <h4 className="text-sm font-bold text-orange-900 mb-3">
+                      ප්‍රවේශපත්
+                    </h4>
+                    <div className="space-y-1 text-sm">
+                      {ticketCategories2.map((ticket) => (
+                        <div
+                          key={ticket.category}
+                          className="flex justify-between"
+                        >
+                          <span className="text-gray-800">
+                            {ticket.category}
+                            {ticket.reserved && (
+                              <span className="text-orange-600 text-xs ml-2">
+                                (Reserved)
+                              </span>
+                            )}
+                            {ticket.parking && (
+                              <span className="text-green-600 text-xs ml-2">
+                                +Parking
+                              </span>
+                            )}
+                          </span>
+                          <span className="font-semibold text-orange-900">
+                            LKR {ticket.price}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full md:w-auto mt-6"
+                >
+                  <a
+                    href="https://oneticket.lk/event/VF5N1192B727260E24374"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-8 py-3 bg-orange-600 text-white rounded-xl shadow-md hover:bg-orange-700 transition-all font-bold text-center"
                   >
                     Book Now
                   </a>

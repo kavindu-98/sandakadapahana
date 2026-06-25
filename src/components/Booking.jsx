@@ -178,7 +178,7 @@ const Booking = () => {
                     <p>⏰ Gates open at 6:00 PM</p>
                   </div>
 
-                  {/* Ticket Categories */}
+                 
                   <div className="mt-4 pt-4 border-t border-orange-200">
                     <h4 className="text-sm font-bold text-orange-900 mb-3">
                       ප්‍රවේශපත්

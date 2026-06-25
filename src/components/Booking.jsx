@@ -149,7 +149,7 @@ const Booking = () => {
               </div>
             </div>
             {/* Event 2 */}
-            <div className="relative bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 lg:p-10 shadow-md border-2 border-orange-300 flex flex-col md:flex-row items-center gap-8">
+            {/* <div className="relative bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 lg:p-10 shadow-md border-2 border-orange-300 flex flex-col md:flex-row items-center gap-8">
               <img
                 src={flyerImg5}
                 alt="Concert Flyer Polonnaruwa"
@@ -225,7 +225,7 @@ const Booking = () => {
                   </a>
                 </motion.button>
               </div>
-            </div>
+            </div> */}
 
             {/* Past Events Section */}
             <div className="mt-20 pt-12 border-t-2 border-gray-300">

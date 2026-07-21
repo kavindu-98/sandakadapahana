@@ -83,9 +83,9 @@ const Booking = () => {
               <div className="flex-1 flex flex-col h-full justify-between">
                 <div>
                   <h2 className="text-2xl lg:text-3xl font-bold text-amber-800 mb-2">
-                    Sandakadapahana - Sugathadasa Indoor Stadium
+                    Sandakadapahana - Musaeus College Auditorium
                     <span className="block text-base lg:text-lg text-amber-600 font-semibold mt-1">
-                      සඳකඩපහණ - සුගතදාස ගෘහස්ථ ක්‍රිඩාංගනය
+                      සඳකඩපහණ - මියුසියස් විද්‍යාලයීය ශ්‍රවණාගාරය
                     </span>
                   </h2>
                   <p className="text-gray-600 text-base leading-relaxed mb-4">
@@ -95,9 +95,9 @@ const Booking = () => {
                     harmony.
                   </p>
                   <div className="space-y-2 text-gray-700 mb-4">
-                    <p>📅 2026 ජූලි මස 25 වන දින</p>
-                    <p>📍 කොළඹ සුගතදාස ගෘහස්ථ ක්‍රිඩාංගනයේ දී</p>
-                    <p>⏰ Gates open at 4:00 PM</p>
+                    <p>📅 2026 ජූලි මස 26 වන දින</p>
+                    <p>📍 කොළඹ මියුසියස් විද්‍යාලයීය ශ්‍රවණාගාරයේ දී</p>
+                    <p>⏰ Gates open at 6:00 PM</p>
                   </div>
 
                   {/* Ticket Categories */}
